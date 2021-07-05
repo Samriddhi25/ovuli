@@ -6,7 +6,7 @@ import profile from '@wireframes/assets/Setting_screen/profile.png';
 import { Entypo } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
 import { MaterialIcons } from 'react-native-vector-icons';
-
+import i18n from '@/i18n';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   content: {
-    height: 50,
+    height: 40,
     width: 150,
   },
   design: {
@@ -56,26 +56,25 @@ const styles = StyleSheet.create({
 });
 
 const ProfileScreen = () => {
-  const [language, setLanguage] = React.useState('');
-  const [cycle, setCycle] = React.useState('');
-  const [lastCycle, setLastCycle] = React.useState('');
-
-  console.log(language);
-  console.log(cycle);
-  console.log(lastCycle);
+  const [language, setLanguage] = React.useState('English');
+  const [cycle, setCycle] = React.useState('20 Days');
+  const [lastCycle, setLastCycle] = React.useState('14 July 2020');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.head}>Settings</Text>
+      <Text style={styles.head}>{i18n.t('settings')}</Text>
 
       <View style={styles.userInfo}>
         <Image source={profile} style={styles.profile} />
-        <Text style={styles.wel}>Samriddhi</Text>
+        <Text style={styles.wel}>{'\n\n\n '} Samriddhi</Text>
       </View>
 
       <View style={styles.design}>
         <MaterialIcons name="language" style={styles.create} />
-        <Text style={styles.welcome}>Language</Text>
+        <Text style={styles.welcome}>
+          {i18n.t('language')}
+          {/* Language */}
+        </Text>
         <Picker
           selectedValue={language}
           style={styles.content}
@@ -87,7 +86,7 @@ const ProfileScreen = () => {
 
       <View style={styles.design}>
         <Entypo name="circular-graph" style={styles.create} />
-        <Text style={styles.welcome}>Cycle Length</Text>
+        <Text style={styles.welcome}>{i18n.t('cycle_length')}</Text>
         <Picker
           selectedValue={cycle}
           style={styles.content}
@@ -99,7 +98,7 @@ const ProfileScreen = () => {
 
       <View style={styles.design}>
         <Feather name="droplet" style={styles.create} />
-        <Text style={styles.welcome}>Last Period</Text>
+        <Text style={styles.welcome}>{i18n.t('last_period')}</Text>
         <Picker
           selectedValue={lastCycle}
           style={styles.content}

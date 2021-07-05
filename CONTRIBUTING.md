@@ -96,7 +96,7 @@ I know not everyone has their grasp on React Native yet but there are multiple w
 
 1. **Design:** If you feel like that your *Design sense* is awesome. This section is for you, we are using figma to create deisgn. All the wireframes will be uploaded in `wireframes` folder. 
 2. **Documentation / Wiki:** Documentation is very important aspect of any open source project and it is for this project as well. You might learn a lot while writing about it.
-3. **Language Translation:** We are not using google translator to be precise. Also the language conversion will be only for UI elements. Feel free to add your own language. We will be storing this info in `languageBase` folder.
+3. **Language Translation:** We are not using google translator to be precise. Also the language conversion will be only for UI elements. Feel free to add your own language. We will be storing this info in `translations` folder.
 4. **Report Issues:** I consider this as one of the most important tasks. Follow the steps mention is upcomming section.
 5. **Code:** Last but not least you can code the feature or fix a bug to make it flawless. There are two ways you can do that 
 	-	**HTML & CSS:** We are using [Atomic Design System](https://bradfrost.com/blog/post/atomic-web-design/) so you can even just design and button by changing it's color and still have a big impact of the over all platform.
@@ -125,6 +125,39 @@ We will be using Github issues,
 - Notes 
 
 People *love* thorough bug reports. I'm not even kidding.
+
+## Contribution Conventions
+
+1. Start using functional components.
+
+2. Start using module resolver.
+
+    eg.
+    ### bad practice
+    ```
+    import LanguageScreen from '../../languageScreen';
+    ```
+    ### good practice
+    ```
+    import LanguageScreen from '@/screens/profileScreen/LanguageScreen'
+    ```
+    ### Reason
+    * Easy to debug the file.
+    * Increase readability.
+
+3. Don't use Inline styles.
+4. Please take create of the variable names. A variable name should define the function work.
+5. If you are using colors. Then please create a color object for your component.
+* Please add the outside the component scope like styles object. Define this after the Imports.
+
+e.g.
+```
+const colors = {
+   colorName: 'colorCode'
+}
+```
+### Reason
+In the future, if we have to change the color so we don't need to find them. This makes easy to find and updates.
 
 ## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
